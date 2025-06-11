@@ -1,0 +1,970 @@
+/* =================================================== */
+/* 1. Variables globales                               */
+/* =================================================== */
+:root {
+  /* Paleta */
+  --color-primario: rgba(220, 53, 69, 1);
+  --color-secundario: rgba(0, 4, 40, 1);
+  --color-terciario: rgba(0, 78, 146, 1);
+  /* fondos */
+  --fondo-principal: linear-gradient(to bottom right, #f4f6fa, #dbe3ee);
+  /* navbar */
+  --fondo-opaco: rgba(0, 0, 0, 0.5);
+  --fondo-navbar: rgba(0, 30, 70, 0.9);
+  --fondo-navbar-secundario: rgba(0, 78, 146, 1);
+  --fondo-navbar-opaco: rgba(255, 255, 255, 0.1);
+  /* Párrafo */
+  --texto-color-primario: rgb(255, 255, 255);
+  --texto-color-secundario: rgb(224, 231, 255);
+  --texto-color-terciario: rgb(51, 51, 51);
+  /* Titulo */
+  --titulo-color-primario: rgba(220, 53, 69, 1);
+  --titulo-color-secundario: rgb(255, 255, 0);
+}
+
+/* =================================================== */
+/* 2. Estilos generales                                */
+/* =================================================== */
+body {
+  background: var(--fondo-principal);
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* Titulo */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+/* Scrollbar general */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #da291c, #0033a0);
+  border-radius: 10px;
+  border: 2px solid #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #ffcc00, #da291c);
+}
+
+/* =================================================== */
+/* 3. navbar_view.php                                  */
+/* =================================================== */
+
+/* ------ Configuración de la barra de navegación ------ */
+.navbar-customizado {
+  background: linear-gradient(90deg, var(--color-secundario), var(--color-terciario));
+  box-shadow: 0 4px 6px var(--fondo-opaco);
+  font-size: 1.1rem;
+  padding: 0.5rem;
+}
+
+/* Separación link */
+.navbar-nav .nav-link {
+  padding: 0.7rem;
+  margin-left: 1rem;
+  line-height: 1.6;
+  border-radius: 1rem;
+  transition: transform 0.2s ease;
+}
+
+/* Estética link */
+.nav-link:hover {
+  background-color: var(--fondo-navbar-opaco);
+  transform: scale(1.05);
+  transition: color 0.3s ease, background-color 0.3s ease, border-radius 0.3s ease, transform 0.2s ease;
+}
+
+/* Config Menu desplegable */
+.navbar-customizado .dropdown-menu {
+  background: var(--fondo-navbar);
+  box-shadow: 0 4px 8px var(--fondo-navbar-opaco);
+  border-radius: 1rem;
+}
+
+.navbar-customizado .dropdown-item {
+  color: var(--texto-color-secundario);
+  transition: background-color 0.3s ease;
+  padding: 0.6rem 0.6rem;
+  border-radius: 1rem;
+  margin-top: 0.2rem;
+}
+
+.navbar-customizado .dropdown-item:hover {
+  background-color: var(--fondo-navbar-secundario);
+  color: var(--texto-color-primario);
+}
+
+.navbar-customizado .dropdown-item:focus {
+  background-color: var(--fondo-navbar-secundario);
+  color: var(--texto-color-primario);
+  border: none;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
+}
+
+/* separa a inicio del logo en modo responsivo */
+@media (max-width: 991.98px) {
+  .navbar-customizado .navbar-nav .nav-item:first-child {
+    padding-top: 1rem;
+  }
+}
+
+/* Estilo del botón login/registrar */
+.btn-login-icon {
+  background: linear-gradient(to bottom, #da291c, #0033a0);
+  border: none;
+  border-radius: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  color: white;
+}
+
+.btn-login-icon:hover {
+  background: linear-gradient(to bottom, #ffcc00, #da291c);
+}
+
+/* Estilo del botón buscar */
+.btn-buscar-icon {
+  background: linear-gradient(to bottom, #da291c, #0033a0);
+  border: none;
+  border-radius: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  color: white;
+}
+
+.btn-buscar-icon:hover {
+  background: linear-gradient(to bottom, #ffcc00, #da291c);
+}
+
+/* ------ Fin configuración de la barra de navegación ------ */
+
+/* =================================================== */
+/* 4. principal.php                                    */
+/* =================================================== */
+
+/*------------- Sección 1 - Inicio Configuración de la Sección Banner ----------*/
+.seccion-banner-carrusel {
+  position: relative;
+  padding: 0;
+  background: var(--fondo-principal);
+}
+
+/* Fondo opaco del fondo banner*/
+.banner-contenido {
+  background-color: var(--fondo-opaco);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+/* Configuración del titulo h2 banner */
+.banner-contenido h2 {
+  color: var(--color-primario);
+}
+
+/* configuración del párrafo banner */
+.banner-contenido p {
+  font-size: 1.25rem;
+  color: var(--texto-color-primario);
+  line-height: 1.6;
+}
+
+/* configuración de la img */
+.seccion-banner-carrusel .carousel-item img {
+  max-height: 650px;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* ------ Fin configuración banner ------ */
+
+/* ------ Sección 2 - Inicio Configuración Nuestra Historia ------ */
+
+/* CConfiguration del contenedor principal*/
+.seccion-nuestra-historia {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 2rem 0 2rem;
+  margin: 2rem 0;
+}
+
+/* Configuration del mini contenedor */
+.historia-contenido {
+  flex: 1 1 400px;
+  padding: 1rem;
+}
+
+/* Configuración de textos */
+.historia-contenido h2 {
+  color: var(--color-primario);
+  margin-bottom: 1rem;
+}
+
+.historia-contenido p {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: var(--texto-color-terciario);
+}
+
+/* Configuration img */
+.historia-imagen {
+  flex: 1 1 300px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.historia-imagen img {
+  max-width: 90%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px var(--fondo-opaco);
+}
+
+/* ---------- Fin configuración NUestra Historia ----------- */
+
+/*---------------- Sección 3 - Inicio Configuración de la sección equipo --------*/
+
+/* Contenedor principal */
+#nuestro-equipo {
+  padding: 1rem;
+}
+
+/* Título principal del contenedor */
+#nuestro-equipo .titulo-equipo {
+  color: var(--color-primario);
+  margin-bottom: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Imagen dentro de la card */
+#nuestro-equipo .card-img-top {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+/* Texto de la card */
+#nuestro-equipo .card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+#nuestro-equipo .card-text {
+  font-size: 1.1rem;
+}
+
+/* Estética general de las cards */
+#nuestro-equipo .card {
+  transition: box-shadow 0.4s ease, transform 0.3s ease;
+}
+
+#nuestro-equipo .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(225, 7, 0, 0.668);
+}
+
+#nuestro-equipo .card-body {
+  padding: 1rem;
+}
+
+
+/* --------------------- Seccion 5 Bootstrap puro ------------------------------ */
+
+/* =================================================== */
+/* 5. footer_view.php                                  */
+/* =================================================== */
+
+/* Inicio configuración footer */
+.footer {
+  background: linear-gradient(135deg, var(--color-secundario), var(--color-terciario));
+  color: var(--texto-color-primario);
+  padding: 2.5rem 1rem 1rem;
+}
+
+/* Config contenedor principal */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+/* Config columna img logo RDB */
+.footer-marca {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--color-primario);
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+
+/* Logo RDB  */
+.footer-logo img {
+  vertical-align: middle;
+  margin-right: 0.5rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.footer-logo img:hover {
+  transform: scale(1.1);
+}
+
+/* Config textos */
+.texto-amarillo {
+  color: var(--titulo-color-secundario);
+}
+
+/* Texto debajo del logo RDB */
+.footer-description {
+  color: var(--texto-color-secundario);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Config lista títulos */
+.footer-links h5,
+.footer-social h5 {
+  color: var(--titulo-color-secundario);
+  margin-bottom: 1rem;
+}
+
+/* Config lista */
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links ul li a {
+  display: inline-block;
+  color: var(--texto-color-secundario);
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+  color: var(--titulo-color-secundario);
+  transform: scale(1.1);
+}
+
+/* Congig columna 3 social icons */
+.social-icons {
+  display: flex;
+  gap: 1.2rem;
+}
+
+/* Config estetica */
+/* .social-icons a {
+  font-size: 1.5rem;
+  color: var(--texto-color-secundario);
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: var(--texto-color-primario);
+} */
+
+.social-icons img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.3);
+}
+
+/* Separador */
+.footer-separator {
+  border: none;
+  border-top: 2px solid var(--color-primario);
+  margin: 0.5rem 0 1rem;
+}
+
+/* Config Copy */
+.footer-copy {
+  text-align: center;
+  color: var(--texto-color-secundario);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+
+/* =================================================== */
+/* 6. Monoplaza.php                                     */
+/* =================================================== */
+
+/* Titulo componentes */
+.titulo-seccion {
+  margin: 5rem 5rem 1rem 5rem;
+  color: var(--color-primario);
+  font-weight: bold;
+}
+
+/* Contenedor de las tarjetas (grid) */
+.grid-partes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 2rem 0;
+  margin-bottom: 3.4rem;
+}
+
+/* Las tarjetas */
+.parte {
+  background-color: #0d1b2a;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Config imagen */
+.parte img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  border: 2px solid #fcb900;
+
+}
+
+/* Aspecto estéticos */
+.parte:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(225, 7, 0, 0.621);
+}
+
+/* Config Textos */
+.parte h3 {
+  color: #fcb900;
+  margin: 0.5rem 0;
+}
+
+.parte p {
+  color: #f0f0f0;
+}
+
+/* ----------------------------------------- */
+
+/* Seccion 3: Neumáticos */
+
+/* Contenedor principal*/
+.seccion-neumaticos .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.seccion-neumaticos .parrafo-neumatico {
+  margin: 0;
+  color: white;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+/* Configuración de filas */
+.grid-neumaticos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Configuración mini contenedor */
+.neumatico {
+  display: flex;
+  /* border: 2px solid #888; */
+  padding: 15px;
+  border-radius: 8px;
+  align-items: center;
+}
+
+/* Config img */
+.neumatico img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  padding: 10px;
+}
+
+
+@keyframes girarRueda {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.neumatico img:hover {
+  animation: girarRueda 1s linear infinite;
+}
+
+/* Contenedor de los textos  */
+.contenido-neumatico {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-left: 30px;
+}
+
+/* Inicio Configuration de los textos  */
+.container h2 {
+  color: var(--titulo-color-primario);
+}
+
+.container p {
+  margin: 0;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.contenido-neumatico h3 {
+  color: var(--titulo-color-secundario);
+}
+
+.contenido-neumatico p {
+  margin: 0;
+  line-height: 1.4;
+  color: white;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+/* Responsi Sección 2: Componentes Principales */
+
+/* Para tablets sw mostrará 2 columnas */
+@media (max-width: 992px) {
+  .grid-partes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Para móviles se mostrara 1 columna */
+@media (max-width: 576px) {
+  .grid-partes {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+  }
+
+  .parte {
+    padding: 1.2rem;
+  }
+
+  .parte h3 {
+    font-size: 1.1rem;
+  }
+
+  .parte p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Responsi Sección 3: Neumáticos */
+@media (max-width: 768px) {
+  .neumatico {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+  }
+
+  .neumatico>img {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+
+/* =================================================== */
+/* 7. contacto.php                                     */
+/* =================================================== */
+
+/* Titulo debajo del banner */
+.seccion-contacto-redes h2 {
+  padding: 2rem;
+  text-align: center;
+  margin-top: 2.9rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+  color: var(--titulo-color-primario);
+}
+
+/* Posicionamiento icons */
+.redes-iconos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+/* Config imagen icons tamaño */
+.redes-iconos img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 2rem;
+}
+
+/* Config estética */
+.redes-iconos a {
+  display: inline-block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.redes-iconos a:hover {
+  transform: scale(1.15);
+  filter: brightness(1.3);
+}
+
+/*------------ Sección 2: Contacto form ------------ */
+
+/* Contenedor principal */
+.formulario-contacto {
+  background: linear-gradient(135deg, #000428, #004e92);
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 3rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.5);
+}
+
+/* Solucion a bootstrap */
+.formulario-contacto .titulo-formulario {
+  color: var(--titulo-color-secundario);
+}
+
+.titulo-formulario {
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  background-image: linear-gradient(to right, #0033a0, #da291c);
+  background-repeat: no-repeat;
+  background-size: 100% 3px;
+  background-position: bottom left;
+}
+
+/* Config Label */
+.campo-formulario {
+  border: none;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.15);
+  font-size: 1.2rem;
+  background: linear-gradient(to bottom right, #f4f6fa, #dbe3ee);
+}
+
+/* Config botones */
+
+/* Botón Enviar */
+.btn-enviar {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  transition: all 0.3s ease;
+}
+
+.btn-enviar:hover {
+  background-color: #b51e15;
+  transform: scale(1.05);
+}
+
+/* Botón Borrar */
+.btn-borrar {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  transition: all 0.3s ease;
+}
+
+.btn-borrar:hover {
+  background: var(--fondo-principal);
+  color: #0033a0;
+  transform: scale(1.05);
+}
+
+/*------------ Sección 3 - Inicio Configuración Encontranos / Mapa ------------ */
+
+/* Config video fondo */
+.video-fondo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Config capa gris */
+.capa-oscura {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+/* mapa */
+.contenedor-mapa {
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 0 20px var(--fondo-opaco);
+}
+
+
+/* =================================================== */
+/* 8. Modal: forms_view.php                            */
+/* =================================================== */
+
+/* ==================================================
+   CONTENEDOR PRINCIPAL
+================================================== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* ==================================================
+   CAJA CENTRADA DEL MODAL
+================================================== */
+.modal-dialog {
+  margin: 5% auto;
+  max-width: 400px;
+}
+
+/* ==================================================
+   ESTILOs
+================================================== */
+.modal-content {
+  background: linear-gradient(90deg, var(--color-secundario), var(--color-terciario));
+  color: white;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: none;
+}
+
+/* ==================================================
+   HEADER
+================================================== */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: none;
+}
+
+.modal-header h5 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.btn-close {
+  border-color: white;
+}
+
+/* ==================================================
+   FORMULARIO: LABELS
+================================================== */
+.modal-body {
+  margin-top: 15px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Opciones Olvidé mi contraseña */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.form-options a {
+  font-size: 0.9rem;
+  color: #aaa;
+  text-decoration: none;
+}
+
+/* bOTON enviar */
+.btn-submit {
+  margin-top: 1rem;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid white;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: white;
+  color: var(--color-secundario);
+}
+
+.btn.btn-secondary {
+  margin-top: 1rem;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn.btn-secondary:hover {
+  background-color: white;
+  color: var(--color-secundario);
+}
+
+/* ==================================================
+   REGISTRO: ENLACE A CREAR CUENTA
+================================================== */
+.registro {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 15px;
+}
+
+.registro a {
+  color: yellow;
+  text-decoration: none;
+}
+
+/* =================================================== */
+/* 9. Pilotos.php                                      */
+/* =================================================== */
+
+/* Contenedor principal */
+#nuestros-pilotos {
+  padding: 1rem;
+}
+
+/* Título de la sección */
+#nuestros-pilotos .titulo-pilotos {
+  color: var(--color-primario);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Imagenes vertical*/
+#nuestros-pilotos .card-img-vertical {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 0.5rem 0.5rem 0 0;
+  margin-bottom: 0.5rem;
+}
+
+/* Reutilizamos estilos */
+#nuestros-pilotos .card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+#nuestros-pilotos .card-text {
+  font-size: 1.3rem;
+}
+
+#nuestros-pilotos .card {
+  transition: box-shadow 0.4s ease, transform 0.3s ease;
+}
+
+#nuestros-pilotos .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(225, 7, 0, 0.668);
+}
+
+#nuestros-pilotos .card-body {
+  padding: 1rem;
+}
+
+#nuestros-pilotos .card-body ul li {
+  margin-bottom: 0.3rem;
+  font-size: 1.3rem;
+}
+
+/* ==================================================
+  Seccion 3: Estadisticas tabla
+================================================== */
+
+/* Contenedor para pantallas pequeñas */
+.tabla-contenido tbody td,
+.tabla-contenido thead th {
+  font-size: 1.2rem;
+}
+
+.tabla-responsive-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.tabla-responsive-wrapper table {
+  min-width: 768px;
+  background: var(--fondo-principal);
+}
+
+#estadisticas table tbody tr:hover {
+  background-color: #ffe5e5;
+  transition: background-color 0.3s ease;
+}
