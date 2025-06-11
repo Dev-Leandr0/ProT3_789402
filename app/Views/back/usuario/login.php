@@ -38,12 +38,12 @@
 
           <div class="mb-3">
             <label for="loginPassword" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="loginPassword" name="password" required>
+            <input type="password" class="form-control" id="loginPassword" name="pass" required>
 
             <!-- Mensaje de Alerta -->
-            <?php if ($validation->getError('password')): ?>
+            <?php if ($validation->getError('pass')): ?>
               <div class="alert alert-danger mt-2">
-                <?= $validation->getError('password'); ?>
+                <?= $validation->getError('pass'); ?>
               </div>
             <?php endif; ?>
           </div>
