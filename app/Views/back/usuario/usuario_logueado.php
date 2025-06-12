@@ -1,21 +1,41 @@
-<div class="container mt-5">
-  <div class="row justify-content-md-center">
-    <div class="col-5">
-      <?php if (session()->getFlashdata('msg')): ?>
-        <div class="alert alert-warning">
-          <?= session()->getFlashdata('msg') ?>
-        </div>
-      <?php endif; ?>
-      <br><br>
-      <?php if (session()->perfil_id == 1): ?>
-        <div>
-          <img class="center" height="100px" width="100px" src="<?php echo base_url('assets/img/perfil/usuarios/admin.png'); ?>">
-        </div>
-      <?php elseif (session()->perfil_id == 2): ?>
-        <div>
-          <img class="center" height="100px" width="100px" src="<?php echo base_url('assets/img/perfil/usuarios/cliente.png'); ?>">
-        </div>
-      <?php endif; ?>
-    </div>
+<div class="contenedor-bienvenida">
+  <div class="bloque-bienvenida animacion-entrada">
+
+    <h3 class="titulo-bienvenida">¡Bienvenido a Red Bull Racing!</h3>
+
+    <p class="subtitulo-bienvenida">
+      Tu cuenta está lista para la carrera
+    </p>
+
+    <?php if (session()->getFlashdata('msg')): ?>
+      <div class="alert alert-warning">
+        <?= session()->getFlashdata('msg') ?>
+      </div>
+    <?php endif; ?>
+
+    <?php if (session()->get('nombre')): ?>
+      <p class="nombre-usuario">
+        Usuario: <strong><?= session()->get('nombre'); ?></strong>
+      </p>
+    <?php endif; ?>
+
+    <?php if (session()->perfil_id == 1): ?>
+      <img src="<?= base_url('assets/img/perfil/usuarios/admin.png') ?>"
+        class="imagen-perfil perfil-admin"
+        alt="Perfil Administrador">
+      <p class="rol-usuario rol-admin">Administrador</p>
+
+    <?php elseif (session()->perfil_id == 2): ?>
+      <img src="<?= base_url('assets/img/perfil/usuarios/cliente.png') ?>"
+        class="imagen-perfil perfil-cliente"
+        alt="Perfil Cliente">
+      <p class="rol-usuario rol-cliente">Cliente</p>
+    <?php endif; ?>
+
+    <a href="<?= base_url('logout'); ?>" class="boton-cerrar-sesion">
+      Cerrar sesión
+    </a>
+
   </div>
+
 </div>
