@@ -1,12 +1,12 @@
-<!-- Sección 1 Banner "Carrusel bootstrap + style.css" -->
-<!-- completado 100%  -->
+<!-- Notificación -->
 <?php if (isset($_COOKIE['msg_logout'])): ?>
   <div class="notificaciones">
     <?= esc($_COOKIE['msg_logout']) ?>
   </div>
   <?php setcookie('msg_logout', '', time() - 3600, '/'); ?>
 <?php endif; ?>
-
+<!-- Sección 1 Banner "Carrusel bootstrap + style.css" -->
+<!-- completado 100%  -->
 <section id="principal">
 
   <section id="banner-principal" class="seccion-banner-carrusel">
