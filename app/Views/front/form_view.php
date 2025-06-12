@@ -18,4 +18,11 @@
       registerModal.show();
     });
   <?php endif; ?>
+
+  <?php if (session()->getFlashdata('msg') && session()->getFlashdata('showLoginModal')): ?>
+    document.addEventListener('DOMContentLoaded', function() {
+      var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+      loginModal.show();
+    });
+  <?php endif; ?>
 </script>
