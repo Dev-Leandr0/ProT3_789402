@@ -1,3 +1,10 @@
+<?php if (isset($_COOKIE['msg_login'])): ?>
+  <div class="notificaciones">
+    <?= esc($_COOKIE['msg_login']) ?>
+  </div>
+  <?php setcookie('msg_login', '', time() - 3600, '/'); ?>
+<?php endif; ?>
+
 <div class="contenedor-bienvenida">
   <div class="bloque-bienvenida animacion-entrada">
 
@@ -6,12 +13,6 @@
     <p class="subtitulo-bienvenida">
       Tu cuenta está lista para la carrera
     </p>
-
-    <?php if (session()->getFlashdata('msg')): ?>
-      <div class="alert alert-warning">
-        <?= session()->getFlashdata('msg') ?>
-      </div>
-    <?php endif; ?>
 
     <?php if (session()->get('nombre')): ?>
       <p class="nombre-usuario">
