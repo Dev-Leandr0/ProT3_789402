@@ -1,11 +1,19 @@
 <!-- Sección 1 Banner "Carrusel bootstrap + style.css" -->
 <!-- completado 100%  -->
+<?php if (isset($_COOKIE['msg_logout'])): ?>
+  <div class="notificaciones">
+    <?= esc($_COOKIE['msg_logout']) ?>
+  </div>
+  <?php setcookie('msg_logout', '', time() - 3600, '/'); ?>
+<?php endif; ?>
+
 <section id="principal">
+
   <section id="banner-principal" class="seccion-banner-carrusel">
     <div id="banner-carrusel-principal" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="assets/img/banner/principal/banner-1.jpg" class="d-block w-100" alt="Bienvenidos Oracle Red Bull Racing">
+          <img src="<?= base_url('assets/img/banner/principal/banner-1.jpg') ?>" class="d-block w-100" alt="Bienvenidos Oracle Red Bull Racing">
           <div class="carousel-caption banner-contenido">
             <h2>Bienvenidos</h2>
             <p>Oracle Red Bull Racing - Potencia y pasión en cada vuelta</p>
@@ -13,7 +21,7 @@
           </div>
         </div>
         <div class="carousel-item">
-          <img src="assets/img/banner/principal/banner-2.jpg" class="d-block w-100" alt="Curiosidades Red Bull Racing">
+          <img src="<?= base_url('assets/img/banner/principal/banner-2.jpg') ?>" class="d-block w-100" alt="Curiosidades Red Bull Racing">
           <div class="carousel-caption banner-contenido">
             <h2>Acerca de Nosotros</h2>
             <p>Red Bull Racing es pionero en innovación tecnológica en la Fórmula 1</p>
@@ -47,7 +55,7 @@
       </p>
     </div>
     <div class="historia-imagen">
-      <img src="assets/img/icons/logo/logo-4.jpg" alt="Logo Red Bull Racing">
+      <img src="<?= base_url('assets/img/icons/logo/logo-4.jpg') ?>" alt="Logo Red Bull Racing">
     </div>
   </section>
 
@@ -61,7 +69,7 @@
       <!-- Christian Horner -->
       <div class="col-md-4 mb-4">
         <div class="card bg-dark text-white border-0">
-          <img src="assets/img/perfil/Christian-Horner-3.jpg" class="card-img-top" alt="Christian Horner">
+          <img src="<?= base_url('assets/img/perfil/Christian-Horner-3.jpg') ?>" class="card-img-top" alt="Christian Horner">
           <div class="card-body">
             <h5 class="card-title text-primary">Christian Horner</h5>
             <p class="card-text">Director de equipo. Estratega dentro y fuera de la pista.</p>
@@ -71,7 +79,7 @@
       <!-- Pierre Waché -->
       <div class="col-md-4 mb-4">
         <div class="card bg-dark text-white border-0">
-          <img src="assets/img/perfil/Pierre-Waché-2.jpg" class="card-img-top" alt="Pierre Waché">
+          <img src="<?= base_url('assets/img/perfil/Pierre-Waché-2.jpg') ?>" class="card-img-top" alt="Pierre Waché">
           <div class="card-body">
             <h5 class="card-title text-warning">Pierre Waché</h5>
             <p class="card-text">Diseñador jefe y mente maestra detrás del monoplaza de Red Bull.</p>
@@ -81,7 +89,7 @@
       <!--Hannah Schmitz -->
       <div class="col-md-4 mb-4">
         <div class="card bg-dark text-white border-0">
-          <img src="assets/img/perfil/Hannah-Schmitz-1.jpg" class="card-img-top" alt="Pierre Waché">
+          <img src="<?= base_url('assets/img/perfil/Hannah-Schmitz-1.jpg') ?>" class="card-img-top" alt="Pierre Waché">
           <div class="card-body">
             <h5 class="card-title text-danger">Hannah Schmitz</h5>
             <p class="card-text">Ingeniera jefe de estrategia, clave en cada decisión de carrera.</p>

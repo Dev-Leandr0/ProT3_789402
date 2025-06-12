@@ -5,10 +5,10 @@
     <div id="banner-carrusel-principal" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="assets/img/banner/contacto/contacto-1.jpg" class="d-block w-100" alt="El equipo completo de Oracle Red Bull Racing en la Fórmula 1">
+          <img src="<?= base_url('assets/img/banner/contacto/contacto-1.jpg'); ?>" class="d-block w-100" alt="El equipo completo de Oracle Red Bull Racing en la Fórmula 1">
         </div>
         <div class="carousel-item">
-          <img src="assets/img/banner/contacto/contacto-2.jpg" class="d-block w-100" alt="Fanáticos de Red Bull con máscaras de toro en un evento de F1">
+          <img src="<?= base_url('assets/img/banner/contacto/contacto-2.jpg'); ?>" class="d-block w-100" alt="Fanáticos de Red Bull con máscaras de toro en un evento de F1">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#banner-carrusel-principal" data-bs-slide="prev">
@@ -26,16 +26,17 @@
     <h2>Síguenos en redes</h2>
     <div class="redes-iconos">
       <a href="https://facebook.com/redbullracing" target="_blank" rel="noopener">
-        <img src="assets/img/icons/redes-medium/facebook.png" alt="Facebook">
+        <img src="<?= base_url('assets/img/icons/redes-medium/facebook.png'); ?>" alt="Facebook">
       </a>
       <a href="https://twitter.com/redbullracing" target="_blank" rel="noopener">
-        <img src="assets/img/icons/redes-medium/x.png" alt="Twitter">
+        <img src="<?= base_url('assets/img/icons/redes-medium/x.png'); ?>" alt="Twitter">
       </a>
       <a href="https://instagram.com/redbullracing" target="_blank" rel="noopener">
-        <img src="assets/img/icons/redes-medium/instagram.png" alt="Instagram">
+        <img src="<?= base_url('assets/img/icons/redes-medium/instagram.png'); ?>" alt="Instagram">
+
       </a>
       <a href="https://youtube.com/redbullracing" target="_blank" rel="noopener">
-        <img src="assets/img/icons/redes-medium/youtube.png" alt="YouTube">
+        <img src="<?= base_url('assets/img/icons/redes-medium/youtube.png'); ?>" alt="YouTube">
       </a>
     </div>
 
@@ -79,7 +80,7 @@
   <section id="contacto-encontranos" class="seccion-sobre-nosotros position-relative overflow-hidden text-white">
 
     <video autoplay muted loop playsinline class="video-fondo" aria-hidden="true">
-      <source src="assets/img/video/sobre-nosotros.mp4" type="video/mp4">
+      <source src="<?= base_url('assets/img/video/sobre-nosotros.mp4'); ?>" type="video/mp4">
       Tu navegador no soporta videos HTML5.
     </video>
 

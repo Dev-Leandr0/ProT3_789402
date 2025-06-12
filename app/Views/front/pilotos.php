@@ -3,10 +3,10 @@
     <div id="banner-carrusel-principal" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
       <div class="carousel-inner">
         <div class="carousel-item">
-          <img src="assets/img/banner/pilotos/max-tsunoda-2.jpg" class="d-block w-100" alt="Max y Yuki">
+          <img src="<?= base_url('assets/img/banner/pilotos/max-tsunoda-2.jpg') ?>" class="d-block w-100" alt="Max y Yuki">
         </div>
         <div class="carousel-item active">
-          <img src="assets/img/banner/pilotos/max-tsunoda-1.jpg" class="d-block w-100" alt="Max y Yuki">
+          <img src="<?= base_url('assets/img/banner/pilotos/max-tsunoda-1.jpg') ?>" class="d-block w-100" alt="Max y Yuki">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#banner-carrusel-principal" data-bs-slide="prev">
@@ -25,7 +25,7 @@
       <!-- Yuki Tsunoda -->
       <div class="col-md-5 mb-5 mx-md-2">
         <div class="card bg-dark text-white border-0">
-          <img src="assets/img/perfil/pilotos/tsunoda.png" class="card-img-vertical" alt="Yuki Tsunoda">
+          <img src="<?= base_url('assets/img/perfil/pilotos/tsunoda.png') ?>" class="card-img-vertical" alt="Yuki Tsunoda">
           <div class="card-body">
             <h5 class="card-title text-primary">Yuki Tsunoda</h5>
             <p class="card-text">Rápido, aguerrido y con una gran evolución desde su debut en F1.</p><br>
@@ -43,7 +43,7 @@
       <!-- Max Verstappen -->
       <div class="col-md-5 mb-5 mx-md-2">
         <div class="card bg-dark text-white border-0">
-          <img src="assets/img/perfil/pilotos/max-verstappen.png" class="card-img-vertical" alt="Max Verstappen">
+          <img src="<?= base_url('assets/img/perfil/pilotos/max-verstappen.png') ?>" class="card-img-vertical" alt="Max Verstappen">
           <div class="card-body">
             <h5 class="card-title text-warning">Max Verstappen</h5>
             <p class="card-text">Campeón del mundo, agresivo, preciso y dominante en la pista.</p><br>

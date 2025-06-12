@@ -1,8 +1,8 @@
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-logo">
-      <a href="<?= site_url('principal') ?>" class="footer-marca">
-        <img src="assets/img/icons/logo/logo-4.jpg" alt="Red Bull Racing" height="50">
+      <a href="<?php echo site_url('principal'); ?>" class="footer-marca">
+        <img src="<?php echo base_url('assets/img/icons/logo/logo-4.jpg'); ?>" alt="Red Bull Racing" height="50">
         <h5>Red <span class="texto-amarillo">Bull</span> Racing</h5>
       </a>
       <p class="footer-description">
@@ -15,7 +15,7 @@
       <ul>
         <li><a href="<?= site_url('principal') ?>">Inicio</a></li>
         <li><a href="<?= site_url('monoplaza') ?>">Monoplaza</a></li>
-        <!-- <li><a href="<?= site_url('pilotos') ?>">Pilotos</a></li> -->
+        <li><a href="<?= site_url('pilotos') ?>">Pilotos</a></li>
         <li><a href="<?= site_url('contacto') ?>">Contacto</a></li>
       </ul>
     </div>
@@ -24,17 +24,18 @@
       <h5>Síguenos</h5>
       <div class="social-icons">
         <a href="https://www.facebook.com/redbullracing">
-          <img src="assets/img/icons/redes-small/facebook.png" alt="Facebook" />
+          <img src="<?= base_url('assets/img/icons/redes-small/facebook.png'); ?>" alt="Facebook" />
         </a>
         <a href="https://twitter.com/redbullracing">
-          <img src="assets/img/icons/redes-small/x.png" alt="Twitter" />
+          <img src="<?= base_url('assets/img/icons/redes-small/x.png'); ?>" alt="Twitter" />
         </a>
         <a href="https://www.instagram.com/redbullracing">
-          <img src="assets/img/icons/redes-small/instagram.png" alt="Instagram" />
+          <img src="<?= base_url('assets/img/icons/redes-small/instagram.png'); ?>" alt="Instagram" />
         </a>
         <a href="https://www.youtube.com/redbullracing">
-          <img src="assets/img/icons/redes-small/youtube.png" alt="YouTube" />
+          <img src="<?= base_url('assets/img/icons/redes-small/youtube.png'); ?>" alt="YouTube" />
         </a>
+
       </div>
     </div>
 
@@ -44,7 +45,7 @@
   <p class="footer-copy">© 2025 Oracle Red Bull Racing. Todos los derechos reservados.</p>
 </footer>
 
-<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>
 <!-- Dependencia de bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- Dependencia para los sms de alerta -->
