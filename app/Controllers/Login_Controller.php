@@ -59,7 +59,7 @@ class Login_Controller extends Controller
         session()->setFlashdata('msg', 'Bienvenido !!');
         return redirect()->to('/panel');
       } else {
-        $session->setFlashdata('msg', 'Password Incorrecta');
+        $session->setFlashdata('msg', 'Contraseña Incorrecta');
         return redirect()->to('/login');
       }
     } else {
@@ -69,8 +69,10 @@ class Login_Controller extends Controller
   }
   public function logout()
   {
-    $session = session();
-    $session->destroy();
+    session()->destroy();
+
+    setcookie('msg_logout', 'Sesión cerrada exitosamente.', time() + 5, '/');
+
     return redirect()->to('/');
   }
 }
