@@ -26,7 +26,8 @@
 
           <div class="mb-3">
             <label for="loginEmail" class="form-label">Correo electrónico</label>
-            <input type="email" class="form-control" id="loginEmail" name="email" required>
+            <input type="email" class="form-control" id="loginEmail" name="email"
+              value="<?= old('email') ?>" required>
 
             <!-- Mensaje de Alerta -->
             <?php if ($validation->getError('email')): ?>
