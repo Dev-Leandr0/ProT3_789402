@@ -37,7 +37,8 @@ class Login_Controller extends Controller
       $ba = $data['baja'];
       if ($ba == 'SI') {
         $session->setFlashdata('msg', 'usuario dado de baja');
-        return redirect()->to('/login');
+        $session->setFlashdata('showLoginModal', true);
+        return redirect()->to('/login')->withInput();
       }
 
 
@@ -56,15 +57,17 @@ class Login_Controller extends Controller
 
         $session->set($ses_data);
 
-        session()->setFlashdata('msg', 'Bienvenido !!');
+        setcookie('msg_login', 'Sesión iniciada exitosamente.', time() + 5, '/');
         return redirect()->to('/panel');
       } else {
         $session->setFlashdata('msg', 'Contraseña Incorrecta');
-        return redirect()->to('/login');
+        $session->setFlashdata('showLoginModal', true);
+        return redirect()->to('/login')->withInput();
       }
     } else {
       $session->setFlashdata('msg', 'No Existe el Email o es Incorrecto');
-      return redirect()->to('/login');
+      $session->setFlashdata('showLoginModal', true);
+      return redirect()->to('/login')->withInput();
     }
   }
   public function logout()
