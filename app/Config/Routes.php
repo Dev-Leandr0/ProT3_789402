@@ -18,3 +18,6 @@ $routes->get('/login', 'Login_Controller::create');
 $routes->post('/enviarlogin', 'Login_Controller::auth');
 $routes->get('/panel', 'Panel_Controller::index', ['filter' => 'auth']);
 $routes->get('/logout', 'Login_Controller::logout');
+
+$routes->get('admin', 'Admin_Controller::index', ['filter' => 'authAdmin']);
+$routes->get('admin/baja/(:num)', 'Admin_Controller::darDeBaja/$1', ['filter' => 'authAdmin']);
