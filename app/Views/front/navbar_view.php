@@ -14,6 +14,14 @@
         <li class="nav-item">
           <a class="nav-link active text-white fw-semibold" href="<?= site_url('principal') ?>">Inicio</a>
         </li>
+
+        <!-- Visto solo admin -->
+        <?php if ($session->get('logged_in') && $session->get('perfil_id') == 1): ?>
+          <li class="nav-item">
+            <a class="nav-link text-white fw-semibold" href="<?= site_url('admin') ?>">Panel Admin</a>
+          </li>
+        <?php endif; ?>
+
         <li class="nav-item">
           <a class="nav-link text-white fw-semibold" href="<?= site_url('monoplaza') ?>">Monoplaza</a>
         </li>
