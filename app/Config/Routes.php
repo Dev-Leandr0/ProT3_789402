@@ -21,3 +21,4 @@ $routes->get('/logout', 'Login_Controller::logout');
 
 $routes->get('admin', 'Admin_Controller::index', ['filter' => 'authAdmin']);
 $routes->get('admin/baja/(:num)', 'Admin_Controller::darDeBaja/$1', ['filter' => 'authAdmin']);
+$routes->get('admin/alta/(:num)', 'Admin_Controller::darDeAlta/$1', ['filter' => 'authAdmin']);
