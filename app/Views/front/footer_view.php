@@ -47,10 +47,10 @@
 
 <script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>
 <!-- Dependencia de bootstrap -->
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- Dependencia para los sms de alerta -->
-<script src="<?= base_url('assets/js/contacto.js'); ?>"></script>
-<!-- script para el formulario de contacto.php -->
+
 <script src="<?= base_url('assets/js/buscador-navbar.js') ?>"></script>
 <!-- script para navbar_view.php -->
 
