@@ -3,7 +3,7 @@ document.getElementById("formulario-busqueda").addEventListener("submit", functi
 
   const entrada = document.getElementById("entrada-busqueda").value.toLowerCase().trim();
   const entradaNormalizada = entrada.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  const baseURL = window.location.origin + "/ProT2_789402";
+  const baseURL = window.location.origin + "/ProT3_789402";
 
   const rutas = {
     // === principal.php ===
