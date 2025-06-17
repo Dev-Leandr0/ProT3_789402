@@ -11,27 +11,49 @@ class Admin_Controller extends Controller
   {
     $session = session();
 
-    // Verifica si está logueado y si es administrador
     if (!$session->get('logged_in') || $session->get('perfil_id') != 1) {
       return redirect()->to('/login');
     }
 
     $usuarioModel = new usuario_Model();
+
     $estado = $this->request->getGet('estado');
     $buscar = $this->request->getGet('buscar');
+    $perfil = $this->request->getGet('perfil');
 
-    $query = $usuarioModel;
+    $perfilesPermitidos = ['todos', 'admin', 'cliente'];
+    if (!in_array($perfil, $perfilesPermitidos)) {
+      $perfil = 'todos';
+    }
+
+    // Campos permitidos para ordenar
+    $camposPermitidos = ['id_usuario', 'nombre', 'apellido', 'usuario', 'email', 'baja'];
+    // Direcciones permitidas para ordenar
+    $direccionesPermitidas = ['asc', 'desc'];
+    // Tomo los valores que vienen por URL o pongo el valor por defecto
+    $ordenarPor = $this->request->getGet('ordenar_por') ?? 'apellido';
+    $ordenDireccion = $this->request->getGet('orden_direccion') ?? 'asc';
+
+    if (!in_array($ordenarPor, $camposPermitidos)) {
+      $ordenarPor = 'apellido';
+    }
+
+    if (!in_array(strtolower($ordenDireccion), $direccionesPermitidas)) {
+      $ordenDireccion = 'asc';
+    }
+
+    $builder = $usuarioModel;
 
     // Filtro por estado
     if ($estado === 'activos') {
-      $query = $query->where('baja', 'NO');
+      $builder = $builder->where('baja', 'NO');
     } elseif ($estado === 'inactivos') {
-      $query = $query->where('baja', 'SI');
+      $builder = $builder->where('baja', 'SI');
     }
 
-    // Filtro de búsqueda
+    // Búsqueda
     if (!empty($buscar)) {
-      $query = $query->groupStart()
+      $builder = $builder->groupStart()
         ->like('nombre', $buscar)
         ->orLike('apellido', $buscar)
         ->orLike('usuario', $buscar)
@@ -39,13 +61,26 @@ class Admin_Controller extends Controller
         ->groupEnd();
     }
 
-    $usuarios = $query->findAll();
+    // Filtro por perfil
+    if ($perfil === 'admin') {
+      $builder = $builder->where('perfil_id', 1);
+    } elseif ($perfil === 'cliente') {
+      $builder = $builder->where('perfil_id', 2);
+    }
+
+    // Ordenamos según los valores validados
+    $usuarios = $builder
+      ->orderBy($ordenarPor, $ordenDireccion)
+      ->findAll();
 
     $data = [
       'titulo' => 'Panel de Administración',
       'usuarios' => $usuarios,
       'estado_actual' => $estado ?? 'todos',
-      'busqueda_actual' => $buscar
+      'busqueda_actual' => $buscar,
+      'orden_actual' => $ordenarPor,
+      'direccion_actual' => $ordenDireccion,
+      'perfil_actual' => $perfil
     ];
 
     echo view('front/head_view', $data);
@@ -54,25 +89,28 @@ class Admin_Controller extends Controller
     echo view('front/footer_view');
   }
 
+  // ======================================
+  // 17/06 Se agrego orden por columna
+
+
   public function darDeBaja($id)
   {
     $session = session();
 
-    // Verificar acceso admin
     if (!$session->get('logged_in') || $session->get('perfil_id') != 1) {
       return redirect()->to('/login');
     }
     $usuarioModel = new usuario_Model();
 
-    // Buscamos el usuario por su ID
     $usuario = $usuarioModel->find($id);
-
-    $session = session();
     $usuarioEnSesion = $session->get('id_usuario');
 
-    if ($id == $usuarioEnSesion) {
+    if (!$usuario) {
+      // Usuario no encontrado
+      session()->setFlashdata('msg_baja_error', 'El usuario que intentás dar de baja no existe.');
+    } elseif ($id == $usuarioEnSesion) {
       session()->setFlashdata('msg_baja_error', 'No podés darte de baja a vos mismo.');
-    } elseif ($usuario && $usuario['baja'] !== 'SI') {
+    } elseif ($usuario['baja'] !== 'SI') {
       $usuarioModel->update($id, ['baja' => 'SI']);
       session()->setFlashdata('msg_baja', 'El usuario ha sido dado de baja exitosamente.');
     }
@@ -84,19 +122,18 @@ class Admin_Controller extends Controller
   {
     $session = session();
 
-    // Verificar acceso admin
     if (!$session->get('logged_in') || $session->get('perfil_id') != 1) {
       return redirect()->to('/login');
     }
     $usuarioModel = new usuario_Model();
 
-    // Buscamos el usuario por su ID
     $usuario = $usuarioModel->find($id);
 
-    if ($usuario && $usuario['baja'] === 'SI') {
-
+    if (!$usuario) {
+      // Usuario no encontrado
+      session()->setFlashdata('msg_alta_error', 'El usuario que intentás dar de alta no existe.');
+    } elseif ($usuario['baja'] === 'SI') {
       $usuarioModel->update($id, ['baja' => 'NO']);
-
       session()->setFlashdata('msg_alta', 'El usuario ha sido dado de alta exitosamente.');
     }
 
