@@ -16,8 +16,9 @@
 
     <?php if (session()->get('nombre')): ?>
       <p class="nombre-usuario">
-        Usuario: <strong><?= session()->get('nombre'); ?></strong>
+        Usuario: <strong><?= esc(session()->get('nombre')); ?></strong>
       </p>
+
     <?php endif; ?>
 
     <?php if (session()->perfil_id == 1): ?>
