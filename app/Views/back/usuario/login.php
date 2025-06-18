@@ -6,7 +6,7 @@
       <!-- Mensaje flash -->
       <?php if (session()->getFlashdata('msg')): ?>
         <div class="alert alert-warning">
-          <?= session()->getFlashdata('msg') ?>
+          <?= esc(session()->getFlashdata('msg')) ?>
         </div>
       <?php endif; ?>
 
@@ -27,12 +27,12 @@
           <div class="mb-3">
             <label for="loginEmail" class="form-label">Correo electrónico</label>
             <input type="email" class="form-control" id="loginEmail" name="email"
-              value="<?= old('email') ?>" required>
+              value="<?= esc(old('email')) ?>" required>
 
             <!-- Mensaje de Alerta -->
             <?php if ($validation->getError('email')): ?>
               <div class="alert alert-danger mt-2">
-                <?= $validation->getError('email'); ?>
+                <?= esc($validation->getError('email')); ?>
               </div>
             <?php endif; ?>
           </div>
@@ -44,7 +44,7 @@
             <!-- Mensaje de Alerta -->
             <?php if ($validation->getError('pass')): ?>
               <div class="alert alert-danger mt-2">
-                <?= $validation->getError('pass'); ?>
+                <?= esc($validation->getError('pass')); ?>
               </div>
             <?php endif; ?>
           </div>
