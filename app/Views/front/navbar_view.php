@@ -1,6 +1,7 @@
 <?php $session = session(); ?>
 <nav class="navbar navbar-expand-lg sticky-top navbar-customizado">
-  <div class="container-fluid animate__animated animate__bounceInLeft">
+  <div class="container-fluid">
+    <!-- <div class="container-fluid animate__animated animate__bounceInLeft"> -->
     <a class="navbar-brand d-flex align-items-center animate__animated animate__pulse animate__delay-1s animate__infinite" href="<?= site_url('principal') ?>">
       <img src="<?= base_url('assets/img/icons/logo/logo-2.svg') ?>" alt="Red Bull Racing" height="30" class="me-2">
     </a>
