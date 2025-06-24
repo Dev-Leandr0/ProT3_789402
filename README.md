@@ -5,7 +5,8 @@ Sitio web temático dedicado a **Red Bull Racing**, desarrollado con **CodeIgnit
 
 ---
 
-📝 Descripción
+
+## 📝 Descripción
 
 Este proyecto es una página web **dinámica**, **responsiva** y con funcionalidades completas de gestión de usuarios, inspirada en el equipo de Fórmula 1 Red Bull Racing.
 
@@ -75,37 +76,36 @@ La aplicación está desarrollada en PHP usando el framework CodeIgniter 4 y se 
 /app\
 └──/Views\
   │  ├── /front\
-  │  │    ├── head\_view\.php    # Head HTML con metadatos, estilos y scripts globales\
-  │  │    ├── navbar\_view\.php  # Barra de navegación responsiva y dinámica\
-  │  │    ├── footer\_view\.php  # Pie de página con información y enlaces\
-  │  │    ├── form\_view\.php    # Formularios modales de login y registro\
-  │  │    ├── principal.php      # Página principal con banner, equipo y logros\
-  │  │    ├── monoplaza.php      # Sección con descripción y multimedia del monoplaza\
-  │  │    ├── pilotos.php        # Cards de pilotos y sección con estadísticas detalladas\
-  │  │    └── contacto.php       # Página de contacto con formulario, redes y mapa\
+  │  │  ├── head\_view\.php    # Head HTML con metadatos, estilos y scripts globales\
+  │  │  ├── navbar\_view\.php  # Barra de navegación responsiva y dinámica\
+  │  │  ├── footer\_view\.php  # Pie de página con información y enlaces\
+  │  │  ├── form\_view\.php    # Formularios modales de login y registro\
+  │  │  ├── principal.php      # Página principal con banner, equipo y logros\
+  │  │  ├── monoplaza.php      # Sección con descripción y multimedia del monoplaza\
+  │  │  ├── pilotos.php        # Cards de pilotos y sección con estadísticas detalladas\
+  │  │  └── contacto.php       # Página de contacto con formulario, redes y mapa\
   │  ├── /back\
-  │  │    ├── /admin                   # Solo accesible por usuarios con rol administrador\
-  │  │    │  ├── admin\_panel.php      # Vista principal del panel de administración con tabla CRUD\
-  │  │    │  ├── editar\_usuario.php   # Formulario para editar datos de un usuario\
-  │  │    │  └── ver\_usuario.php      # Visualización detallada de un usuario\
-  │  │    └── /usuario                 # Vistas para usuarios registrados\
-  │  │       ├── editar\_perfil.php    # Formulario para que el usuario edite su perfil\
-  │  │       ├── login.php             # Modal de login con validación\
-  │  │       ├── registro.php          # Modal de registro con validación\
-  │  │       ├── usuario\_logueado.php # Panel principal con datos y bienvenida (admin/cliente)\
-  │  └──     └── ver\_mi\_perfil.php   # Vista de perfil propio del usuario
+  │  │   ├── /admin                   # Solo accesible por usuarios con rol administrador\
+  │  │   │  ├── admin\_panel.php      # Vista principal del panel de administración con tabla CRUD\
+  │  │   │  ├── editar\_usuario.php   # Formulario para editar datos de un usuario\
+  │  │   │  └── ver\_usuario.php      # Visualización detallada de un usuario\
+  │  │   └── /usuario                 # Vistas para usuarios registrados\
+  │  │      ├── editar\_perfil.php    # Formulario para que el usuario edite su perfil\
+  │  │      ├── login.php             # Modal de login con validación\
+  │  │      ├── registro.php          # Modal de registro con validación\
+  │  │      ├── usuario\_logueado.php # Panel principal con datos y bienvenida (admin/cliente)\
+  │  └──    └── ver\_mi\_perfil.php   # Vista de perfil propio del usuario\
   │    
   └──/assets\
       ├── css/\
-      │    ├── bootstrap.min.css\
-      │    └── style.css            # Estilos personalizados para todas las vistas\
+      │   ├── bootstrap.min.css\
+      │   └── style.css            # Estilos personalizados para todas las vistas\
       ├── js/\
-      │    ├── bootstrap.min.js\
-      │    ├── contacto.js          # Validación y alertas del formulario de contacto\
-      │    ├── buscador-navbar.js   # Funcionalidad de buscador en la navbar\
-      │    ├── admin\_panel.js      # SweetAlert2 para panel admin (alta/baja usuarios)\
-      └──  └── editar\_usuario.js   # SweetAlert2 para edición de usuario
-
+      │   ├── bootstrap.min.js\
+      │   ├── contacto.js          # Validación y alertas del formulario de contacto\
+      │   ├── buscador-navbar.js   # Funcionalidad de buscador en la navbar\
+      │   ├── admin\_panel.js      # SweetAlert2 para panel admin (alta/baja usuarios)\
+      └── └── editar\_usuario.js   # SweetAlert2 para edición de usuario\
       └── img/\
        │  ├── banner/\
        │  ├── principal/\
@@ -113,13 +113,14 @@ La aplicación está desarrollada en PHP usando el framework CodeIgniter 4 y se 
        │  ├── contacto/\
        │  └── pilotos/\
        ├── icons/\
-       │    ├── logo/\
-       │    ├── redes-small/\
-       │    └── redes-medium/\
+       │  ├── logo/\
+       │  ├── redes-small/\
+       │  └── redes-medium/\
        ├── monoplaza/\
        ├── perfil/\
-       │    └── usuarios/           # Imágenes de perfiles (cliente.png, admin.png)\
+       │   └── usuarios/           # Imágenes de perfiles (cliente.png, admin.png)\
        └── videos/
+
 
 ---
 
@@ -163,6 +164,7 @@ La aplicación está desarrollada en PHP usando el framework CodeIgniter 4 y se 
 
 - `alegre_leandro.sql`: Script SQL con estructura de tablas y datos iniciales de prueba.
 
+
 ---
 
 ## ▶️ Cómo ejecutar el proyecto
@@ -194,6 +196,7 @@ http://localhost/ProT3_789402
 ```
 
 6. Navega entre las páginas usando la barra de navegación.
+
 
 ---
 
