@@ -211,6 +211,7 @@ Desde phpMyAdmin o la terminal MySQL, simplemente importá el archivo SQL:
 En phpMyAdmin: elegí la pestaña Importar, seleccioná el archivo alegre_leandro.sql desde /app/Database/Migrations/, y se creará automáticamente la base de datos con sus tablas y datos.
 
 📌 Esto creará automáticamente la base de datos RedBullRacing junto con todas las tablas necesarias y usuarios de prueba.
+
 ---
 
 ## 🤝 Cómo contribuir
