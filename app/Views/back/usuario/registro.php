@@ -89,7 +89,7 @@
         </div>
 
         <div class="modal-footer">
-          <button type="submit" class="btn btn-success">Registrarse</button>
+          <button type="submit" class="btn btn-secondary">Registrarse</button>
           <button type="reset" class="btn btn-secondary">Borrar</button>
         </div>
       </form>
