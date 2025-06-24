@@ -5,33 +5,22 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\usuario_Model;
 
-// ==============================================================================================================
+// ====================================================================================================================
 // Índice de funciones principales del Admin_Controller:
-// ==============================================================================================================
-//
-// 1 - Función index:
-//     Muestra el panel de administración con la lista de usuarios, incluyendo filtros, búsqueda y ordenamiento.
-//
-// 2 - Función darDeBaja:
-//     Permite desactivar un usuario (darlo de baja), evitando que el admin se dé de baja a sí mismo.
-//
-// 3 - Función darDeAlta:
-//     Activa un usuario que estaba dado de baja, solo accesible para administradores.
-//
-// 4 - Función verUsuario:
-//     Muestra el detalle completo de un usuario, asegurándose que sólo lo vea un administrador.
-//
-// 5 - Función editar:
-//     Busca un usuario por su ID y carga el formulario para editar sus datos.
-//
-// 6 - Función actualizar:
-//     Toma los datos modificados del formulario y los guarda en la base de datos para actualizar al usuario.
-//
-// ==============================================================================================================
+// Vistas: back/admin/admin_panel.php, editar_usuario.php, ver_usuario.php
+// ====================================================================================================================
+
+// ====================================================================================================================
+// 1 - Función index: Muestra el panel de administración con la lista de usuarios, incluyendo filtros, búsqueda y ordenamiento.
+// 2 - Función verUsuario: Muestra el detalle completo de un usuario, asegurándose que sólo lo vea un administrador.
+// 3 - Función darDeBaja: Permite desactivar un usuario (darlo de baja), evitando que el admin se dé de baja a sí mismo.
+// 4 - Función darDeAlta: Activa un usuario que estaba dado de baja, solo accesible para administradores.
+// 5 - Función editar: Busca un usuario por su ID y carga el formulario para editar sus datos.
+// 6 - Función actualizar: Toma los datos modificados del formulario y los guarda en la base de datos para actualizar al usuario.
+// ====================================================================================================================
 
 class Admin_Controller extends Controller
 {
-
   // ==============================================================================================================
   // 1 - Función index: Muestra el panel de administración con filtros, búsqueda y ordenamiento de usuarios.
   // ==============================================================================================================
@@ -131,8 +120,48 @@ class Admin_Controller extends Controller
     // 17/06 Se agregó orden por columna
   }
 
+  // ==============================================================================================================
+  // 2 - Función verUsuario: Se encarga de mostrar la información del usuario, asegurándose que solo lo vea un admin.
+  // ==============================================================================================================
+  public function verUsuario($id)
+  {
+    // Abro la sesión para saber quién está navegando
+    $session = session();
+
+    // Si nadie está logueado o no es admin, lo mando directo al login
+    if (!$session->get('logged_in') || $session->get('perfil_id') != 1) {
+      return redirect()->to('/login');
+    }
+
+    // Conecto con la base para trabajar con los usuarios
+    $usuarioModel = new usuario_Model();
+
+    // Busco al usuario que quiero ver usando su ID
+    $usuario = $usuarioModel->find($id);
+
+    // Si no lo encuentro, vuelvo al panel con un cartel de error
+    if (!$usuario) {
+      session()->setFlashdata('msg_baja_error', 'El usuario que estás intentando ver no existe.');
+      return redirect()->to('/admin');
+    }
+
+    // Si todo está bien, preparo los datos para mostrar en la vista
+    $data = [
+      'titulo' => 'Detalle del Usuario',
+      'usuario' => $usuario
+    ];
+
+    // Cargo las partes de la página: cabecera, barra, contenido y pie de página
+    echo view('front/head_view', $data);
+    echo view('front/navbar_view');
+    echo view('back/admin/ver_usuario', $data);
+    echo view('front/footer_view');
+
+    // 17/06 se agrega read o ver usuario
+  }
+
   // ===================================================================================================================
-  // 2 - Función darDeBaja: Se encarga de desactivar un usuario, pero evita que se de, de baja a uno mismo. Solo para admin.
+  // 3 - Función darDeBaja: Se encarga de desactivar un usuario, pero evita que se de, de baja a uno mismo. Solo para admin.
   // ===================================================================================================================
   public function darDeBaja($id)
   {
@@ -172,9 +201,8 @@ class Admin_Controller extends Controller
     return redirect()->to('/admin');
   }
 
-
   // ==============================================================================================================
-  // 3 - Función darDeAlta: Se encarga de activar un usuario que estaba dado de baja, solo si sos Admin.
+  // 4 - Función darDeAlta: Se encarga de activar un usuario que estaba dado de baja, solo si sos Admin.
   // ==============================================================================================================
   public function darDeAlta($id)
   {
@@ -195,6 +223,9 @@ class Admin_Controller extends Controller
     if (!$usuario) {
       // Si no existe, aviso con un mensajito que no lo encontró
       session()->setFlashdata('msg_alta_error', 'El usuario que intentás dar de alta no existe.');
+    } elseif ($usuario['perfil_id'] == 1) {
+      // No puede dar de alta a otro admin
+      session()->setFlashdata('msg_alta_error', 'No podés dar de alta a otro administrador.');
     } elseif ($usuario['baja'] === 'SI') {
       // Si estaba dado de baja, lo activo cambiando ese estado
       $usuarioModel->update($id, ['baja' => 'NO']);
@@ -203,47 +234,6 @@ class Admin_Controller extends Controller
 
     // Vuelvo al panel de administración admin_panel.php
     return redirect()->to('/admin');
-  }
-
-
-  // ==============================================================================================================
-  // 4 - Función verUsuario: Se encarga de mostrar la información del usuario, asegurándose que solo lo vea un admin.
-  // ==============================================================================================================
-  public function verUsuario($id)
-  {
-    // Abro la sesión para saber quién está navegando
-    $session = session();
-
-    // Si nadie está logueado o no es admin, lo mando directo al login
-    if (!$session->get('logged_in') || $session->get('perfil_id') != 1) {
-      return redirect()->to('/login');
-    }
-
-    // Conecto con la base para trabajar con los usuarios
-    $usuarioModel = new usuario_Model();
-
-    // Busco al usuario que quiero ver usando su ID
-    $usuario = $usuarioModel->find($id);
-
-    // Si no lo encuentro, vuelvo al panel con un cartel de error
-    if (!$usuario) {
-      session()->setFlashdata('msg_baja_error', 'El usuario que estás intentando ver no existe.');
-      return redirect()->to('/admin');
-    }
-
-    // Si todo está bien, preparo los datos para mostrar en la vista
-    $data = [
-      'titulo' => 'Detalle del Usuario',
-      'usuario' => $usuario
-    ];
-
-    // Cargo las partes de la página: cabecera, barra, contenido y pie de página
-    echo view('front/head_view', $data);
-    echo view('front/navbar_view');
-    echo view('back/admin/ver_usuario', $data);
-    echo view('front/footer_view');
-
-    // 17/06 se agrega read o ver usuario
   }
 
   // ==============================================================================================================
@@ -337,7 +327,7 @@ class Admin_Controller extends Controller
         ->with('errors', $this->validator->getErrors());
     }
 
-    // Control para que el admin no pueda darse de baja a sí mismo
+    // No darse de baja asi mismo
     if ($id_usuario == $session->get('id_usuario') && $this->request->getPost('baja') === 'SI') {
       return redirect()->back()
         ->withInput()
