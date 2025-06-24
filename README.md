@@ -94,9 +94,9 @@ La aplicación está desarrollada en PHP usando el framework CodeIgniter 4 y se 
   │  │      ├── login.php             # Modal de login con validación\
   │  │      ├── registro.php          # Modal de registro con validación\
   │  │      ├── usuario\_logueado.php # Panel principal con datos y bienvenida (admin/cliente)\
-  │  └──    └── ver\_mi\_perfil.php   # Vista de perfil propio del usuario\
-  │    
-  └──/assets\
+  │  └──   └── ver\_mi\_perfil.php   # Vista de perfil propio del usuario\
+  │
+  └──/assets\
       ├── css/\
       │   ├── bootstrap.min.css\
       │   └── style.css            # Estilos personalizados para todas las vistas\
@@ -105,7 +105,7 @@ La aplicación está desarrollada en PHP usando el framework CodeIgniter 4 y se 
       │   ├── contacto.js          # Validación y alertas del formulario de contacto\
       │   ├── buscador-navbar.js   # Funcionalidad de buscador en la navbar\
       │   ├── admin\_panel.js      # SweetAlert2 para panel admin (alta/baja usuarios)\
-      └── └── editar\_usuario.js   # SweetAlert2 para edición de usuario\
+      └──  └── editar\_usuario.js   # SweetAlert2 para edición de usuario\
       └── img/\
        │  ├── banner/\
        │  ├── principal/\
