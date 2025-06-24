@@ -54,6 +54,7 @@
         <input class="form-control me-2 border-0 shadow-sm" type="search" placeholder="Buscar..." aria-label="Buscar" id="entrada-busqueda">
         <button class="btn btn-danger fw-bold btn-buscar-icon" type="submit">Buscar</button>
 
+        <!-- Modal con informacion del usuario -->
         <?php if ($session->get('logged_in')): ?>
           <div class="dropdown ms-3">
             <a href="#" class="btn btn-user-icon" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -67,6 +68,12 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
+              <li><a class="dropdown-item" href="<?= base_url('panel/perfil') ?>">Ver Perfil</a></li>
+              <li><a class="dropdown-item" href="<?= base_url('perfil/editar') ?>">Editar Perfil</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+
               <li><a class="dropdown-item" href="<?= site_url('logout') ?>">Cerrar sesión</a></li>
             </ul>
           </div>
