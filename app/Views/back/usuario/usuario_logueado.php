@@ -34,6 +34,9 @@
       <p class="rol-usuario rol-cliente">Cliente</p>
     <?php endif; ?>
 
+    <a href="<?= base_url('panel/perfil'); ?>" class="boton-cerrar-sesion">
+      Ver perfil
+    </a>
     <a href="<?= base_url('logout'); ?>" class="boton-cerrar-sesion">
       Cerrar sesión
     </a>
