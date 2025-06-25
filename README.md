@@ -51,6 +51,7 @@ La aplicación está desarrollada en PHP usando el framework CodeIgniter 4 y se 
 - PHP 8+  
 - XAMPP (Apache + MySQL)
 - Bootstrap 5  
+- JavaScript
 - Animate.css  
 - Google Fonts (Rajdhani)  
 - Visual Studio Code  
@@ -84,17 +85,17 @@ La aplicación está desarrollada en PHP usando el framework CodeIgniter 4 y se 
   │  ├── monoplaza.php         # Sección con descripción y multimedia del monoplaza\
   │  ├── pilotos.php           # Cards de pilotos y sección con estadísticas detalladas\
   │  └── contacto.php          # Página de contacto con formulario, redes y mapa\
-  ├── /back\
-  │  ├── /admin                # Solo accesible por usuarios con rol administrador\
-  │  │  ├── admin\_panel.php       # Vista principal del panel de administración con tabla CRUD\
-  │  │  ├── editar\_usuario.php     # Formulario para editar datos de un usuario\
-  │  │  └── ver\_usuario.php        # Visualización detallada de un usuario\
-  │  └── /usuario              # Vistas para usuarios registrados\
-  │    ├── editar\_perfil.php     # Formulario para que el usuario edite su perfil\
-  │    ├── login.php             # Modal de login con validación\
-  │    ├── registro.php          # Modal de registro con validación\
-  │    ├── usuario\_logueado.php  # Panel principal con datos y bienvenida (admin/cliente)\
-  │    └── ver\_mi\_perfil.php     # Vista de perfil propio del usuario
+  └── /back\
+     ├── /admin                # Solo accesible por usuarios con rol administrador\
+     │  ├── admin\_panel.php       # Vista principal del panel de administración con tabla CRUD\
+     │  ├── editar\_usuario.php     # Formulario para editar datos de un usuario\
+     │  └── ver\_usuario.php        # Visualización detallada de un usuario\
+     └── /usuario              # Vistas para usuarios registrados\
+       ├── editar\_perfil.php     # Formulario para que el usuario edite su perfil\
+       ├── login.php             # Modal de login con validación\
+       ├── registro.php          # Modal de registro con validación\
+       ├── usuario\_logueado.php  # Panel principal con datos y bienvenida (admin/cliente)\
+       └── ver\_mi\_perfil.php     # Vista de perfil propio del usuario
 
 /assets\
 ├── css/\
@@ -196,23 +197,36 @@ http://localhost/ProT3_789402
 
 6. Navega entre las páginas usando la barra de navegación.
 
+
 ---
+
 
 ## 🗃️ Configuración de la Base de Datos
 
-🗃️ Configuración de la Base de Datos
+✅ La base de datos viene incluida en el repositorio como archivo `alegre_leandro.sql`. No es necesario crearla manualmente.
 
-✅ La base de datos viene incluida en el repositorio como archivo alegre_leandro.sql. No es necesario crearla manualmente.
+### 1. Importar la base de datos
 
-1. Importar la base de datos
+Desde phpMyAdmin o la terminal MySQL, simplemente importá el archivo SQL.
 
-Desde phpMyAdmin o la terminal MySQL, simplemente importá el archivo SQL:
+💻 En phpMyAdmin:
 
-En phpMyAdmin: elegí la pestaña Importar, seleccioná el archivo alegre_leandro.sql desde /app/Database/Migrations/, y se creará automáticamente la base de datos con sus tablas y datos.
+- Andá a la pestaña **Importar**.
+- Seleccioná el archivo `alegre_leandro.sql` desde la carpeta:
 
-📌 Esto creará automáticamente la base de datos RedBullRacing junto con todas las tablas necesarias y usuarios de prueba.
+```
+/app/Database/Migrations/
+```
+
+- Ejecutá la importación.
+
+📌 Esto creará automáticamente la base de datos junto con todas las tablas necesarias y usuarios de prueba.
+
+🛠️ ¡Listo! Ya tenés la base de datos configurada y lista para usar. 🚀
+
 
 ---
+
 
 ## 🤝 Cómo contribuir
 
