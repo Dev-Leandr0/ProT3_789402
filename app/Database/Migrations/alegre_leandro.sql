@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 24-06-2025 a las 11:30:05
+-- Tiempo de generación: 25-06-2025 a las 02:58:49
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -20,11 +20,15 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `alegre_leandro`
 --
+CREATE DATABASE IF NOT EXISTS `alegre_leandro` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `alegre_leandro`;
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `perfiles`
+--
+-- Creación: 24-06-2025 a las 09:26:56
 --
 
 CREATE TABLE `perfiles` (
@@ -44,6 +48,8 @@ INSERT INTO `perfiles` (`id_perfiles`, `rol`) VALUES
 
 --
 -- Estructura de tabla para la tabla `usuarios`
+--
+-- Creación: 24-06-2025 a las 09:26:59
 --
 
 CREATE TABLE `usuarios` (
@@ -70,7 +76,8 @@ INSERT INTO `usuarios` (`id_usuario`, `apellido`, `nombre`, `usuario`, `email`, 
 (6, 'Emiliano', 'Emiliano', 'dibu', 'emiliano.martinez@gmail.com', '$2y$10$gq7bhMgTurtuH79iKWepFut4dSBlGFQMzBGQij3xrdPLqsCJSutD2', 2, 'NO'),
 (7, 'Colapinto', 'Franco', 'frank', 'franco.colapinto@gmail.com', '$2y$10$o4mtppV0AulOKjBevpOOW.53mkw2LzuOhtR8fCSb6Vy.uySACNSWK', 2, 'NO'),
 (8, 'Verstappen', 'Max', 'max', 'max.verstappen@gmail.com', '$2y$10$Zx746BLt509WoOI1sMaLmeLXvOWy3qNIvCjJP4qNeSg5AC1YmaKY.', 1, 'SI'),
-(9, 'amilton', 'Luis', 'luis', 'amilton@gmail.com', '$2y$10$Px.TRA09Ti3M0JlHFINrw.ruH9CK1u8jahAgOpDI8KNxb/tfe7GM2', 2, 'NO');
+(9, 'hamilton', 'Lewis', 'lewis', 'hamilton@gmail.com', '$2y$10$Px.TRA09Ti3M0JlHFINrw.ruH9CK1u8jahAgOpDI8KNxb/tfe7GM2', 2, 'NO'),
+(10, 'cliente', 'cliente2', 'cliente', 'cliente@gmail.com', '$2y$10$NobdQbNcvANM6Sr2Bp8KbOchrnj8LotZqAiFc.SV2SeId85La6P/u', 2, 'NO');
 
 --
 -- Índices para tablas volcadas
@@ -105,7 +112,7 @@ ALTER TABLE `perfiles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas
