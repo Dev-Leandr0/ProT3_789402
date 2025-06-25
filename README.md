@@ -228,6 +228,27 @@ Desde phpMyAdmin o la terminal MySQL, simplemente importá el archivo SQL.
 ---
 
 
+## 👥 Usuarios de Prueba
+
+Para propósitos de prueba, el sistema incluye dos usuarios predefinidos:
+
+### • Administrador
+- 📧 Email: `admin@gmail.com`
+- 🔐 Contraseña: `1234`
+- ✅ Tiene acceso completo al panel de administración.
+
+### • Cliente
+- 📧 Email: `cliente@gmail.com`
+- 🔐 Contraseña: `1234`
+- 🔒 Tiene acceso únicamente a su perfil personal, con permisos limitados de edición.
+
+📌 Además, **todos los demás usuarios cargados en la base de datos comparten la misma contraseña: `1234`**.
+Esta medida facilita la validación funcional del sistema sin necesidad de gestionar múltiples credenciales durante la etapa de desarrollo y prueba.
+
+
+---
+
+
 ## 🤝 Cómo contribuir
 
 1. Haz un fork del repositorio.  
